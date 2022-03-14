@@ -4,7 +4,7 @@
 
 <body>
     <article>
-        <?= $post; ?>
+        <?= $post->title; ?>
     </article>
 
     <a href="/"><- Go Back</a>
