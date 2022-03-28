@@ -8,8 +8,8 @@
         @else
         <h1 class="text-center">No posts yet. Please check later.</h1>
         @endif
-        
-        
+
+
     </main>
 
 
