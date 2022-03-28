@@ -6,7 +6,7 @@
         <x-post-grid :posts="$posts"/>
 
         @else
-        <h1 class="text-center">No posts yet. Please check later.</h1>
+        <h2 class="text-center text-red-400">No posts yet. Please come back later for some excited news!</h2>
         @endif
 
 
