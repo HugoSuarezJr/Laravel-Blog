@@ -46,9 +46,12 @@
         </span> --}}
         <!-- Search -->
         <span class="relative flex lg:inline-flex items-center bg-gray-200 rounded-xl px-3 py-2">
-            <form action="GET" action="#">
-                <input type="text" name="search" placeholder="Find something"
-                    class="bg-transparent placeholder-black font-semibold text-sm">
+            <form method="GET" action="#">
+                <input type="text"
+                    name="search"
+                    placeholder="Find something"
+                    class="bg-transparent placeholder-black font-semibold text-sm"
+                    value="{{ request('search') }}">
             </form>
         </span>
     </div>
