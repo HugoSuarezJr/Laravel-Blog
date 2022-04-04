@@ -5,10 +5,7 @@
         @if ($posts->count())
         <x-post-grid :posts="$posts"/>
 
-        @else
-        <h1 class="text-center">
-            No posts yet. Please come back later for some exciting news!
-        </h1>
+        {{ $posts->links() }}
         @endif
 
 
