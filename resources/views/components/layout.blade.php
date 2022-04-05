@@ -21,7 +21,7 @@
                 <a href="#" class="bg-blue-500 ml-3 px-4 py-2 rounded-full text-xs font-semibold text-white uppercase">Subscribe for Updates</a>
             </div>
         </nav>
-        
+
         {{ $slot }}
 
         <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
@@ -38,7 +38,7 @@
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
                             <input id='email' type="text" placeholder="Your email address" class="lg:bg-transparent pl-4 focus:outline-none">
-                        </div> 
+                        </div>
 
                         <button href="#" class="bg-blue-500 mt-4 lg:mt-0 hover:bg-blue-600 lg:ml-3 px-8 py-3 rounded-full text-xs font-semibold text-white uppercase">Subscribe</button>
                     </form>
@@ -48,4 +48,6 @@
         </footer>
 
     </section>
+
+    <x-flash />
 </body>
