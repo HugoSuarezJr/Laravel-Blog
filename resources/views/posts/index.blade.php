@@ -6,6 +6,8 @@
         <x-post-grid :posts="$posts"/>
 
         {{ $posts->links() }}
+        @else
+            <h1 class="text-center">No posts right now... Come back again later!</h1>
         @endif
 
 
