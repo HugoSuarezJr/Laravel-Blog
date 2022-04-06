@@ -24,20 +24,17 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
         // attempt to authenticate and log in the user
-        if (auth()->attempt($attributes)){
+        if (! auth()->attempt($attributes)){
             // redirect eith a success flash message
-            return redirect('/')->with('success', 'Welcome Back?');
+            throw ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified'
+            ]);
+             // another way to show auth failure
+            // return back()
+            // ->withInput()
+            // ->withErrors(['email' => 'Your provided credentials could not be verified']);
         }
         // auth failed
-
-        throw ValidationException::withMessages([
-            'email' => 'Your provided credentials could not be verified'
-        ]);
-
-        // another way to show auth failure
-        // return back()
-        // ->withInput()
-        // ->withErrors(['email' => 'Your provided credentials could not be verified']);
-
+        return redirect('/')->with('success', 'Welcome Back!');
     }
 }
