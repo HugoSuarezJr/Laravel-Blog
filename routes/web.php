@@ -21,6 +21,7 @@ Route::get('ping', function () {
         'email_address' => 'hugo@suarezhomeinspeciton.com',
         'status' => 'subscribed'
     ]);
+
     ddd($response);
 });
 
