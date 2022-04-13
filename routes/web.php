@@ -9,7 +9,10 @@ use App\Http\Controllers\SessionsController;
 
 
 
-Route::get('ping', function () {
+Route::post('newsletter', function () {
+
+    request()->validate(['email' => 'required|email']);
+
     $mailchimp = new \MailchimpMarketing\Configuration();
 
     $mailchimp->setConfig([
@@ -18,11 +21,12 @@ Route::get('ping', function () {
     ]);
 
     $response = $mailchimp->lists->addListMember('e6be6cd4d9', [
-        'email_address' => 'hugo@suarezhomeinspeciton.com',
+        'email_address' => request('email'),
         'status' => 'subscribed'
     ]);
 
-    ddd($response);
+    return redirect('/')
+        ->with('success', 'You are now signed up for our newsletter!');
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
