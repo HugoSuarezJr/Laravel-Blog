@@ -62,11 +62,16 @@
                             <label for="email" class="hidden lg:inline">
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
-                            <input id='email'
+                            <div>
+                                <input id='email'
                                     name="email"
                                     type="text"
                                     placeholder="Your email address"
                                     class="lg:bg-transparent pl-4 focus:outline-none">
+                            @error('email')
+                                <span class="text-xs text-red-400">{{ $message }}</span>
+                            @enderror
+                            </div>
                         </div>
 
                         <button href="#"
