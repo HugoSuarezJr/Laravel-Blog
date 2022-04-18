@@ -4,7 +4,7 @@
     <div class="py-5 px-4 lg:flex">
     <div class="flex-1 lg:mr-8">
         {{-- TODO  --}}
-        <img src="/images/illustration-1.png" alt="Blog post illustration" class="rounded-xl">
+        <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog post illustration" class="rounded-xl">
     </div>
 
     <div class="flex flex-1 flex-col justify-between">

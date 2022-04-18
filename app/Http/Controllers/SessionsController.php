@@ -18,7 +18,6 @@ class SessionsController extends Controller
 
     public function store(){
         // validate the request
-
         $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -29,12 +28,8 @@ class SessionsController extends Controller
             throw ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verified'
             ]);
-             // another way to show auth failure
-            // return back()
-            // ->withInput()
-            // ->withErrors(['email' => 'Your provided credentials could not be verified']);
         }
-        // auth failed
+        session()->regenerate();
         return redirect('/')->with('success', 'Welcome Back!');
     }
 }
