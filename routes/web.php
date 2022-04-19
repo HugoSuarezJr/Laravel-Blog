@@ -18,9 +18,9 @@ Route::get('/register', [RegisterController::class, 'create'])->middleware('gues
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest'); // ¡Fix login!
-Route::post('/sessions', [SessionsController::class, 'store'])->middleware('guest');
+Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 
-Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
-Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('auth');
+Route::post('admin/posts', [PostController::class, 'store'])->middleware('auth');

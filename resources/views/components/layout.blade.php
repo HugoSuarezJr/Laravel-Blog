@@ -27,12 +27,22 @@
 
             <div class="mt-6 md:mt-0 flex items-center">
                 @auth
-                <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()-> name }} !</span>
 
-                <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-4">
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }} !</button>
+                    </x-slot>
+
+                <x-dropdown-item href="/">All Posts</x-dropdown-item>
+                {{--TODO: Why is this not active? --}}
+                <x-dropdown-item href="/?author={{ auth()->user()->username }}" :active="request()->is('/?author={{ auth()->user()->username }}')">My Posts</x-dropdown-item>
+                <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+
+                </x-dropdown>
+
+                <form id="logout-form" method="POST" action="/logout" class="hidden">
                     @csrf
-
-                    <button type="submit">Log Out</button>
                 </form>
                 @else
                 <a href="/register" class="text-xs font-bold uppercase">Register</a>
@@ -65,7 +75,7 @@
                             <div>
                                 <input id='email'
                                     name="email"
-                                    type="text"
+                                    type="email"
                                     placeholder="Your email address"
                                     class="lg:bg-transparent pl-4 focus:outline-none">
                             @error('email')
