@@ -33,10 +33,12 @@
                         <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }} !</button>
                     </x-slot>
 
-                <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                {{--TODO: Why is this not active? --}}
-                <x-dropdown-item href="/?author={{ auth()->user()->username }}" :active="request()->is('/?author={{ auth()->user()->username }}')">My Posts</x-dropdown-item>
-                <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                @can('admin')
+                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                @endcan
+
+
                 <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 
                 </x-dropdown>
