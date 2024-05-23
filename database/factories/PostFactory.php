@@ -18,11 +18,11 @@ class PostFactory extends Factory
         return [
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
-            'title' => $this->faker->sentence,
-            'slug' => $this->faker->slug,
+            'title' => $this->faker->realText(10, 1),
+            'slug' => $this->faker->realText(30, 1),
             'thumbnail' => $this->faker->imageUrl,
-            'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
-            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>'
+            'excerpt' => '<p>' . $this->faker->realText(100, 2) . '</p>',
+            'body' => '<p>' . $this->faker->realText(700, 3) . '</p>'
         ];
     }
 }
