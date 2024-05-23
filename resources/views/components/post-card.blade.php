@@ -2,7 +2,7 @@
 <article {{ $attributes->merge(['class' => 'translation-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'])}}>
     <div class="py-5 px-4">
         <div>
-            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog post illustration" class="rounded-xl">
+            <img src="http://loremflickr.com/640/480/nature" alt="Blog post illustration" class="rounded-xl">
         </div>
 
         <div class="mt-5 flex flex-col justify-between">
